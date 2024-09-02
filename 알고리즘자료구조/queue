@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+
+int stack[100];
+int stackIndex = 0;
+int testcase = 0;//테스트 케이스 수
+int num = 0;//받을 인수
+void stackPush(int stackNum)
+{
+	stack[stackIndex] = stackNum;
+	if (stackIndex < num-1)
+	{
+		stackIndex++;
+	}
+
+}
+
+//void stackPop()
+//{
+//	cout << stack[stackIndex];
+//
+//}
+
+int main()
+{
+	ios_base::sync_with_stdio(false); //고속입력
+	cin.tie(nullptr);
+
+	int stackNum = 0;
+
+	cin >> testcase;
+
+	for (int i = 0; i < testcase; i++)
+	{
+		stackIndex = 0;
+		cin >> num;
+		for (int j = 0; j < num; j++)
+		{
+			cin >> stackNum;
+			stackPush(stackNum);
+		}
+		for (int j = 0; j < num; j++)
+		{
+			cout << stack[j];
+		}
+		//cout << "wow" << '\n';
+	}
+
+}
