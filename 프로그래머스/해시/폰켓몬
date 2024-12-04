@@ -1,0 +1,20 @@
+#include <vector>
+#include <unordered_map>//검색
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int solution(vector<int> nums)
+{
+    unordered_map<int, int> pokemonCount;
+    
+    for(int num : nums){//검색
+        pokemonCount[num]++;
+    }
+    int maxSelectable = nums.size()/2;
+    
+    int uniqueCount = pokemonCount.size();
+    
+    return min(uniqueCount, maxSelectable);
+    
+}
