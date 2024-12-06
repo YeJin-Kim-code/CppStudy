@@ -1,0 +1,19 @@
+#include <vector>
+#include <algorithm> // std::max, std::swap
+using namespace std;
+
+int solution(vector<vector<int>> sizes) {
+    int maxWidth = 0;
+    int maxHeight = 0;
+
+    for (auto& size : sizes) {
+        // 항상 큰 값을 가로로 설정
+        if (size[0] < size[1]) {
+            swap(size[0], size[1]);
+        }
+        maxWidth = max(maxWidth, size[0]);  // 최대 가로 길이 갱신
+        maxHeight = max(maxHeight, size[1]); // 최대 세로 길이 갱신
+    }
+
+    return maxWidth * maxHeight;
+}
